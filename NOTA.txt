@@ -1,0 +1,3 @@
+* el archivo php.php esta aparte solo por mientras, para organizarlo mejor
+
+* el archivo js es para hacer un efecto, al clickear en unos de los dias del calendario aparece el menu en el se agregan los datos, los campos que pide son 'descripcion', 'hora inicio', 'hora termino'
