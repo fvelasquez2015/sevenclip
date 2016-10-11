@@ -1,2 +1,0 @@
-# sevenclip
-proyecto
