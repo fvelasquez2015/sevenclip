@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <link rel="icon" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="estilo.css" >
+    <link rel="stylesheet" type="text/css" href="estilos.css" >
+    <script src="scripts.js"></script>
+	<title>Calendario</title>
+</head>
+<body>
+	<header>
+	    <div id="headx">
+	      <img id="headLogo" src="logo.png"/>
+	      <img src="7clip2.png" alt="logo" id="headPhrase" />   
+	      <div id="config" onmouseover="Color(this,cnf)" onmouseout="deColor(this,cnf)" onclick="opciones()" ><a id="cnf" href="#"><img src="config.png" alt="config" id="fotoconf"/></a></div>
+	    </div>
+        <div id="opc" class="opt">
+          <ul>
+          	<li><a href="#">Información</a></li>
+          	<li><a href="#">Ayuda</a></li>
+        	</ul>
+        	<img src="subir.png" onclick="quitaropciones()" id="up"/>
+      	</div>
+  	</header>
+    
+    <br>
+
+
+    <div id="calen">
+    	<header>
+    		<h1>Octubre</h1><br>
+    	</header>
+    	<div id=calendario>
+    		<ul class="nomDia">
+    			<li>Lunes</li>
+    			<li>Martes</li>
+    			<li>Miercoles</li>
+    			<li>Jueves</li>
+    			<li>Viernes</li>
+    			<li>Sabado</li>
+    			<li>Domingo</li>
+    		</ul>
+    		<ul class="dias">
+    			<li class="otroDia">
+    				<div class="fecha">25</div>
+    			</li>
+    			<li class="otroDia">
+    				<div class="fecha">26</div>
+    			</li>
+    			<li class="otroDia">
+    				<div class="fecha">27</div>
+    			</li>
+    			<li class="otroDia">
+    				<div class="fecha">28</div>
+    			</li>
+    			<li class="otroDia">
+    				<div class="fecha">29</div>
+    				<div class="evento">
+    					<div class="desc-evento">
+    						Evento 1
+    					</div>
+    					<div class="hora-evento">
+    						2:00pm 
+    					</div>
+       				</div>
+    			</li>
+    			<li class="otroDia">
+    				<div class="fecha">30</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">1</div>
+    			</li>
+    		</ul>
+    		<ul class="dias">
+    			<li class="dia">
+    				<div class="fecha">2</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">3</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">4</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">5</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">6</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">7</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">8</div>
+    			</li>
+    		</ul>
+    		<ul class="dias">
+    			<li class="dia">
+    				<div class="fecha">9</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">10</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">11</div>
+    				<div class="evento">
+    					<div class="desc-evento">
+    						Evento 2
+    					</div>
+    					<div class="hora-evento">
+    						5:00pm 
+    					</div>
+       				</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">12</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">13</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">14</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">15</div>
+    			</li>
+    		</ul>
+    		<ul class="dias">
+    			<li class="dia">
+    				<div class="fecha">16</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">17</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">18</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">19</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">20</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">21</div>
+    				<div class="evento">
+    					<div class="desc-evento">
+    						Evento 3
+    					</div>
+    					<div class="hora-evento">
+    						1:00pm 
+    					</div>
+       				</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">22</div>
+    			</li>
+    		</ul>
+    		<ul class="dias">
+    			<li class="dia">
+    				<div class="fecha">23</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">24</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">25</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">26</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">27</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">28</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">29</div>
+    			</li>
+    		</ul>
+    		<ul class="dias">
+    			<li class="dia">
+    				<div class="fecha">30</div>
+    			</li>
+    			<li class="dia">
+    				<div class="fecha">31</div>
+    			</li>
+    			<li class="otroDia">
+    				<div class="fecha">1</div>
+    			</li>
+    			<li class="otroDia">
+    				<div class="fecha">2</div>
+    			</li>
+    			<li class="otroDia">
+    				<div class="fecha">3</div>
+    			</li>
+    			<li class="otroDia">
+    				<div class="fecha">4</div>
+    			</li>
+    			<li class="otroDia">
+    				<div class="fecha">5</div>
+    			</li>
+    		</ul>
+    	</div>
+    </div>
+</body>
+</html>
