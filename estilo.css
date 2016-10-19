@@ -1,120 +1,80 @@
 body{
-	font-family: Tahoma;
-}
-
-#calendario{
-	width: 100%;
-}
-
-#calendario a{
-	color:#666;
-	text-decoration: none;
-}
-
-#calendario ul{
-	list-style: none;
-	padding: 0;
+	background-image:url("background.png");
 	margin: 0;
-	clear: both;
-	width: 100%;
+	font-family: Lato;
+	font-size: 12px;
 }
-
-#calendario li{
-	display: block;
+ul, li{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.horario{
+	display: inline-block;
+	padding: 45px;
+}
+.horario .day{
+	background: #ecf0f1;
+	border-bottom: 4px solid #bdc3c7;
 	float: left;
-	width: 14.2857142857%;
-	padding: 5px;
-	box-sizing: border-box;;
-	border:1px solid #ccc;
-	margin-right: -1px;
-	margin-bottom: -1px;
+	margin: 30px;
+	position: relative;
+	height: 150px;
+	width: 170px;
+}
+.day.marked{
+	background: #32CD32;
+	border-color: #000000;
+}
+ .day .day-number{
+	color: #7f8c8d;
+	left: 5px;
+	position: absolute;
+	top: 5px;
+}
+.day.marked .day-number{
+	color: white;
 }
 
-#calendario ul.nomDia{
-	height: 40px;
-	background: #333;
+.day .events{
+	color: white;
+	margin: 15px 7px 7px;
+    height: 200px;
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
-
-#calendario ul.nomDia li{
-	text-align: center;
-	text-transform: uppercase;
-	line-height: 20px;
-	border: none !important;
-	padding: 10ox 6px;
-	color: #fff;
-	font-size: 13px;
+.day .events h5{
+    margin: 0 0 9px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
 }
 
-
-#calendario .dias li{
-	height: 180px;
-}
-
-#calendario .dias li:hover{
-	background: #eee;
-}
-
-#calendario .fecha{
-	text-align: center;
-	margin-bottom: 5px;
-	padding: 5px;
-	background: #333;
-	color:#fff;
-	width: 25px;
-	border-radius: 50%;
-	float: right;
-}
-
-#calendario .evento{
-	clear: both;
+.day .events strong,
+.day .events span{
 	display: block;
-	font-size: 13px;
-	border-radius: 4px;
-	padding: 5px;
-	margin-top: 40px;
-	color: #666;
-	line-height: 14px;
-	background:#e4f2f2;
-	border:1px solid #b5dbdc;
-	color: #009aaf;
-	text-decoration: none;
+	font-size: 15px;
+}
+.day a.add-event{
+	background: url('https://db.tt/5jlmu47h') no-repeat;
+	display: block;
+	height: 46px;
+	left: 50%;
+	margin-left: -21px;
+	margin-top: -21px;
+	position: absolute;
+	top: 50%;
+	width: 46px;
 }
 
-#calendario .desc-evento{
-	color:#666;
-	margin: 3px 0 7px 0;
-	text-decoration: none;
+#add-event .modal-body div{
+	margin-bottom: 20px;
 }
 
-#calendario .otroDia{
-	background:#f5f5f5;
-	color: #666;
+#add-event .modal-body label{
+	display: block;
+	font-weight: bold;
+	margin-bottom: 4px;
 }
-
-
-@media(max-width: 768px){
-	#calendario .dia,#calendario .otroDia{
-		display: none;
-	}
-
-
-	#calendario li{
-		height: auto !important;
-		border: 1px solid #ededed;
-		width: 100%;
-		padding: 10px;
-		margin-bottom: -1px;
-	}
-
-	#calendario .fecha{
-		float: none;
-	}
-}
-
-
-
-
-
-
-
