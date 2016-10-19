@@ -1,209 +1,153 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-    <link rel="icon" href="favicon.png">
-    <link rel="stylesheet" type="text/css" href="estilo.css" >
-    <link rel="stylesheet" type="text/css" href="estilos.css" >
-    <script src="scripts.js"></script>
-	<title>Calendario</title>
-</head>
-<body>
-	<header>
+	<head>
+		<title>Calendario</title>
+		<meta charset="utf-8">
+		<link rel="icon" href="favicon.png">
+		<script type="text/javascript" src="scripts-calendario.js"></script>
+		<script type="text/javascript" src="jquery-3.1.1.js"></script>
+    	<link rel="stylesheet" type="text/css" href="estilos-calendario.css" >
+    	<script type="text/javascript">
+    		function abreVent(){
+				$(".ventana").slideDown("slow");	
+			}
+			function cierraVent(){
+				$(".ventana").slideUp("slow");	
+			}
+
+
+			if (window.XMLHttpRequest) objAjax = new XMLHttpRequest() //para Mozilla
+			else if (window.ActiveXObject) objAjax = new ActiveXObject("Microsoft.XMLHTTP") //Para IExplorer
+
+			function TraerDatos(codigo,dato){
+				objAjax.open("POST","lista.php");
+				objAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				objAjax.send("cod="+codigo+"&dat="+dato);
+				objAjax.onreadystatechange = MostrarDatos;
+			}
+			function EliminaDato(codigo,dato){
+				var mensaje = confirm("Esta Seguro(a) de Eliminar el Dato?");
+				if (mensaje) {
+					objAjax.open("POST","lista.php");
+					objAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					dato = document.getElementById("us"+dato).innerHTML;
+					objAjax.send("cod="+codigo+"&dat="+dato);
+					objAjax.onreadystatechange = MostrarDatos;
+					}
+				else {
+					alert("Eliminacion Cancelada!");
+				}	
+			}
+			function MostrarDatos(){
+				if(objAjax.readyState == 4){
+					document.getElementById("caja01").innerHTML = objAjax.responseText;
+				}
+			}
+
+			function exDatos(td){
+				var dia = td.innerHTML;
+				var fecha = document.getElementById('mesYAnno').innerHTML;
+				var mes = fecha.split(" ")[0];
+				var year = fecha.split(" ")[1];
+			}
+		</script>
+	</head>
+	<body>
+		<header>
 	    <div id="headx">
-	      <img id="headLogo" src="logo.png"/>
-	      <img src="7clip2.png" alt="logo" id="headPhrase" />   
-	      <div id="config" onmouseover="Color(this,cnf)" onmouseout="deColor(this,cnf)" onclick="opciones()" ><a id="cnf" href="#"><img src="config.png" alt="config" id="fotoconf"/></a></div>
+	      	<img id="headLogo" src="logo.png"/>
+	      	<img src="7clip2.png" alt="logo" id="headPhrase" />   
+	      	<div id="config" onmouseover="Color(this,cnf)" onmouseout="deColor(this,cnf)" onclick="opciones()" ><a id="cnf" href="#"><img src="config.png" alt="config" id="fotoconf"/></a></div>
+	      	<a href="#"><div id="perfil" class="divPos" onmouseover="Color(this,pS)" onmouseout="deColor(this,pS)"><span id="pS" class="midOpc">MI PERFIL</span></div></a>
+	      	<a href="#"><div id="nota" class="divPos" onmouseover="Color(this,nS)" onmouseout="deColor(this,nS)"><span id="nS" class="midOpc">CALIFICACIONES</span></div></a>
+	      	<a href="#"><div id="curso" class="divPos" onmouseover="Color(this,cS)" onmouseout="deColor(this,cS)"><span id="cS" class="midOpc">CURSOS</span></div></a>
+	      	<a href="#"><div id="calen" class="divPos" onmouseover="Color(this,clS)" onmouseout="deColor(this,clS)"><span id="clS" class="midOpc">CALENDARIO</span></div></a>
+	      	<a href="#"><div id="hora" class="divPos" onmouseover="Color(this,hS)" onmouseout="deColor(this,hS)"><span id="hS" class="midOpc">HORARIO</span></div></a>
 	    </div>
-        <div id="opc" class="opt">
-          <ul>
-          	<li><a href="#">Información</a></li>
-          	<li><a href="#">Ayuda</a></li>
-        	</ul>
-        	<img src="subir.png" onclick="quitaropciones()" id="up"/>
-      	</div>
-  	</header>
-    
-    <br>
+	      	<div id="opc" class="opt">
+	        <ul>
+	          	<li><a href="#">Información</a></li>
+	          	<li><a href="#">Configurar perfil</a></li>
+	          	<li><a href="#">Ayuda</a></li>
+	          	<li><a href="index.html">Cerrar sesión</a></li>
+	        </ul>
+	        <img src="subir.png" onclick="quitaropciones()" id="up"/>
+	      	</div>
+	    </header>
+	    <div class="ventana">
+	    	<div id="form01" >
+				<fieldset>
+				<legend>Nuevo Evento:</legend>
+				<a href="javascript:cierraVent()" id="btnX">X</a>
+				<table>
+					<tr>
+						<td><label>Descripcion:</label> 			</td>
+						<td><input type="text" name="txtDes">		</td>
+					</tr>
+					<tr>
+						<td><label>Fecha:</label> 					</td>
+						<td><input type="date" name="fecha" />		</td>
+					</tr>
+					<tr>
+						<td><label>Hora:</label> 					</td>
+						<td><input type="text" name="txtHor">		</td>
+					</tr>
+					<tr>
+						<td><label>Resibir notificacion:</label>	</td>
+						<td><input type="checkbox" name="checNot">	</td>
+					</tr>
+					<tr>
+						<td><button onclick="cierraVent()">Guardar</button></td>
+						<td><button onclick="cierraVent()">Cancelar</button></td>
+					</tr>
+				</table>
+				</fieldset>
+			</div>
+	    </div>
 
+		<br>
+		<div id="caja">
+			<table id="tablaP">
+				<tr>
+					<td>
+						<table id="tablaC">
+						<tr>
+							<td colspan="7" id="mesYAnno"></td>
+						</tr>
+						<tr  id="nDias">
+							<td name="nDia"></td><td name="nDia"></td><td name="nDia"></td><td name="nDia"></td><td name="nDia"></td><td name="nDia"></td><td name="nDia"></td>
+						</tr>
+						<tr>
+							<td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td>
+						</tr>
+						<tr>
+							<td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td>
+						</tr>
+						<tr>
+							<td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td>
+						</tr>
+						<tr>
+							<td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td>
+						</tr>
+						<tr>
+							<td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td>
+						</tr>
+						<tr>
+							<td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td><td id="dia" name="dia" onclick="exDatos(this)"></td>
+						</tr>
+						</table>
 
-    <div id="calen">
-    	<header>
-    		<h1>Octubre</h1><br>
-    	</header>
-    	<div id=calendario>
-    		<ul class="nomDia">
-    			<li>Lunes</li>
-    			<li>Martes</li>
-    			<li>Miercoles</li>
-    			<li>Jueves</li>
-    			<li>Viernes</li>
-    			<li>Sabado</li>
-    			<li>Domingo</li>
-    		</ul>
-    		<ul class="dias">
-    			<li class="otroDia">
-    				<div class="fecha">25</div>
-    			</li>
-    			<li class="otroDia">
-    				<div class="fecha">26</div>
-    			</li>
-    			<li class="otroDia">
-    				<div class="fecha">27</div>
-    			</li>
-    			<li class="otroDia">
-    				<div class="fecha">28</div>
-    			</li>
-    			<li class="otroDia">
-    				<div class="fecha">29</div>
-    				<div class="evento">
-    					<div class="desc-evento">
-    						Evento 1
-    					</div>
-    					<div class="hora-evento">
-    						2:00pm 
-    					</div>
-       				</div>
-    			</li>
-    			<li class="otroDia">
-    				<div class="fecha">30</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">1</div>
-    			</li>
-    		</ul>
-    		<ul class="dias">
-    			<li class="dia">
-    				<div class="fecha">2</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">3</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">4</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">5</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">6</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">7</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">8</div>
-    			</li>
-    		</ul>
-    		<ul class="dias">
-    			<li class="dia">
-    				<div class="fecha">9</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">10</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">11</div>
-    				<div class="evento">
-    					<div class="desc-evento">
-    						Evento 2
-    					</div>
-    					<div class="hora-evento">
-    						5:00pm 
-    					</div>
-       				</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">12</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">13</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">14</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">15</div>
-    			</li>
-    		</ul>
-    		<ul class="dias">
-    			<li class="dia">
-    				<div class="fecha">16</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">17</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">18</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">19</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">20</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">21</div>
-    				<div class="evento">
-    					<div class="desc-evento">
-    						Evento 3
-    					</div>
-    					<div class="hora-evento">
-    						1:00pm 
-    					</div>
-       				</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">22</div>
-    			</li>
-    		</ul>
-    		<ul class="dias">
-    			<li class="dia">
-    				<div class="fecha">23</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">24</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">25</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">26</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">27</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">28</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">29</div>
-    			</li>
-    		</ul>
-    		<ul class="dias">
-    			<li class="dia">
-    				<div class="fecha">30</div>
-    			</li>
-    			<li class="dia">
-    				<div class="fecha">31</div>
-    			</li>
-    			<li class="otroDia">
-    				<div class="fecha">1</div>
-    			</li>
-    			<li class="otroDia">
-    				<div class="fecha">2</div>
-    			</li>
-    			<li class="otroDia">
-    				<div class="fecha">3</div>
-    			</li>
-    			<li class="otroDia">
-    				<div class="fecha">4</div>
-    			</li>
-    			<li class="otroDia">
-    				<div class="fecha">5</div>
-    			</li>
-    		</ul>
-    	</div>
-    </div>
-</body>
+					</td>
+					<td id="cont01">
+						<div id="info">
+						<h5>Informacion:</h5>
+						<button onclick="abreVent()">Nuevo Evento</button>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<span id="prueba"></span>
+	</body>
 </html>
