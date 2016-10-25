@@ -7,10 +7,11 @@
 	
 	include('conex.inc');
 
-	$sql = "INSERT INTO datos_calendario (id_usuario, desc_calendario, fecha_calendario, tipo_calendario)";
-	$sql.= "VALUES('01','$desc','$fecha/$hora','$tipo')";
+	$sql1 = "INSERT INTO seven_calendario (id_usuario, desc_calendario, fecha_calendario, hora_calendario, tipo_calendario)";
+	$sql1.= "VALUES('01','$desc','$fecha','$hora','$tipo')";
 
-	$insertar = mysqli_query($link,$sql);
+	//$sql2 = "INSERT INTO seven_notificaiones (id_usuario, id_calendario, desc_notificacion, tipo_notificacion)"; 
+	$insertar = mysqli_query($link,$sql1);
 
 	//Chequeamos que la consulta fue bien ejecutada (esto es para eldesarrllador)
   	if(!$insertar) {
@@ -20,6 +21,8 @@
   	else{
   		header('Location: calendario.html');
   	}
+
+
 
 
   ?>

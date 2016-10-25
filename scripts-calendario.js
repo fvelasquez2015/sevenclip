@@ -4,14 +4,15 @@ window.onload = function() {
 //----------- Funciones Generales ----------------------//
 
 function Color(x, a) {
-    x.style.backgroundColor="#27ae60";
-    a.style.color="black";
+    x.style.backgroundColor="#ABB7B7";
+    a.style.color="white";
+    a.style.fontWeight="normal";
 }
 
 function deColor(x,a){
-    x.style.backgroundColor="#3A539B";
-    a.style.color="white";
-    a.style.fontWeight="normal";
+    x.style.backgroundColor="white";
+    a.style.color="black";
+    a.style.fontWeight="bold";
 }
 
 function opciones() {
@@ -26,8 +27,8 @@ function quitaropciones() {
 function calendario(){
 	miFecha = new Date();
 	var nombreDia = ['Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa', 'Do'];
-	var nodoDia = document.getElementsByName('dia');
-	var nodoNombre = document.getElementsByName('nDia');
+	var nodoDia = document.getElementsByClassName('dia');
+	var nodoNombre = document.getElementsByClassName('nDia');
 	var diaSemana = getDiaDeInicio(miFecha);
 	var diasEnMes = getDiasPorMes(miFecha.getMonth(), miFecha.getFullYear());
 	rellenaMesYAnno(miFecha);

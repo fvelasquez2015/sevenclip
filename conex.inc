@@ -1,8 +1,8 @@
 <?php
-	$host     = "localhost";
-	$user     = "root";
-	$passw    = "";
-	$basedato = "calendario";
+	$host     = "db.inf.uct.cl";
+	$user     = "fvelasquez";
+	$passw    = "123456";
+	$basedato = "fvelasquez";
 
 	$link = mysqli_connect($host, $user, $passw, $basedato);
 	mysqli_set_charset($link,'utf8');
