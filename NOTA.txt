@@ -1,0 +1,6 @@
+-Para probar directamente el horario, link a mi pillan : http://pillan.inf.uct.cl/~nbascur/SevenClip/ 
+
+(logear en sevenclip y en el menu principal ir a horario)
+
+Ahora puede listar todos las asignaturas que han sido agregadas al horario, ademas de poder borrarlas desde la interfaz (la tabla de esto implementada con ajax)
+
