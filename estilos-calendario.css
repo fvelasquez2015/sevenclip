@@ -6,28 +6,38 @@ body {
 
 /*Estilos de los div y tablas del calendario*/
 #caja {	
-		width:80%;  
-		text-align: center; 
+		width:90%;   
 		margin: auto;
+		align-content: center;
+		text-align: center;
 	}
 #tablaC {
-		border-radius: 10px; 
-		background: #eee; 
+		text-align: center;
+		border-radius: 5px; 
+		background: white; 
 		width:400px; 
 		height:400px; 
 		font-family: arial; 
-		margin-right: 0;
+		margin-left: 5px;
+		margin-right: 5px;
 	}
+
+#tablaC .dia{
+		background: #eee;
+		border-radius: 1px;
+}
+
 #tablaC .dia:hover { 
 		background: #ABB7B7; 
 		color: white; 
 	}
 #tablaP	{
-		background: #CBE86B; 
-		border-radius: 10px; 
-		margin: auto; 
-		width: 80%; 
+		background: white; 
+		border-radius: 5px; 
+		border: solid 2px #CBE86B; 
 		align-content: center;
+		float: left;
+		margin-left: 40px;
 	}
 #nDias	{
 		background: #101010; 
@@ -39,8 +49,34 @@ td  {
 	}
 
 /* estilos de el form de nuevo evento*/
+#infEvent {
+		color: black;
+		font-family: Arial;
+		font-size: 15px; 
+		width: 400px;
+}
+
+#infEvent button{
+		background: #2E7D32;
+		width: 25px; 
+		height: 25px; 
+		border-radius: 3px; 
+		color: white;
+	}
+#infEvent button:hover{
+		background: #81C784; 
+		color: black;
+	}
+
+#infEvent legend	{
+		color:white; 
+		background: #455A64; 
+		border-radius: 10px; 
+		border: 2px solid #593131;
+	}
+
 #form01	{
-		position: absolute; 
+		position: fixed; 
 		top: 50%; left: 50%;
 		margin-top: -275px; 
 		margin-left: -275px; 
@@ -48,14 +84,19 @@ td  {
 		color: black;
 		font-family: Arial; 
 		width: 550px;
+		height: 80%;
+		overflow: scroll;
 	}
-#form01 button{
-		background: #2E7D32;
-		width: 120px; 
+#form01 button #x{
+		width: 25px; 
 		height: 25px; 
+	}
+#form01 button {
+		background: #2E7D32;
 		border-radius: 5px; 
 		color: white;
 	}
+
 #form01 button:hover{
 		background: #81C784; 
 		color: black;
@@ -68,32 +109,46 @@ td  {
 		border:2px solid #593131;
 	}
 #form01 td {
-		width: 250px; 
 		height: 40px;
 	}
-#info {
-		align-content: left; 
-	}
-#info button { 
-		background: #2E7D32; 
-		width: 120px; 
-		height: 25px; 
+
+#divBtn{
+		float: left;
+}
+
+.edit {
+	width: 100px;
+}
+
+.btnS { 
+		background: #e74c3c; 
+		width: 150px; 
+		height: 45px; 
 		border-radius: 5px; 
 		color: white;
+		margin: 5px;
+		margin-left: 10px;
 	}
-#info button:hover{
-		background: #81C784; 
+.btnS:hover{
+		background: #eee; 
 		color: black;
 	}
-#cont01 { 
+
+#info {
+	background: white;
+	border-radius: 4px;
+	border:1px solid #eee;
 	width: 400px;
-	}
+	height: 400%;
+	margin-left: 40px;
+}
+
 
 /*estilo de ventana de nuevo evento */
 #ventana01{
 	width: 100%;
 	height: 100%;
-	background: rgba(13,13,13,.95);
+	background: rgba(242,233,225,.95);
 	color: white;
 	position: fixed;
 	display: none;
@@ -102,7 +157,8 @@ td  {
 #ventana02{
 	width: 100%;
 	height: 100%;
-	background: rgba(13,13,13,.95);
+	background: rgba(242,233,225,.95);
+	font-size: 15px;
 	color: white;
 	position: fixed;
 	display: none;
@@ -160,14 +216,14 @@ input{
 	width:200px;
 	height:20px;
 	font-family:OpenSans;
-	border:1px solid white;
+	border:2px solid #eee;
 	border-radius:2px;
 }
 fieldset {
   	padding: 0 20px 20px;
   	margin: 0 0 30px;
-  	border: 2px solid #593131;
-  	background: #89A623;
+  	border: 1px solid black;
+  	background: white;
   	border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -239,8 +295,6 @@ p{
 	transition: 0.5s;
 }
 
-
-
 #config{
 	position:relative;
 	background-color:white;
@@ -248,7 +302,7 @@ p{
 	height:70px;
 	color:white;
     font-family:OpenSans;
-    font-size:18px;
+    font-size:15px;
     float:right;
     background-color:white;
 }
@@ -272,6 +326,10 @@ p{
 	height:70px;
 	background-color:white;
 	border-bottom:4px solid #CBE86B;
+}
+
+#calen {
+	border-bottom: 1px solid black;
 }
 
 .opt ul li a:hover{

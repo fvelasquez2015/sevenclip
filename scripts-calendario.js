@@ -32,12 +32,15 @@ function calendario(){
 	var diaSemana = getDiaDeInicio(miFecha);
 	var diasEnMes = getDiasPorMes(miFecha.getMonth(), miFecha.getFullYear());
 	rellenaMesYAnno(miFecha);
-	rellenaTabla(nodoDia, nodoNombre, diasEnMes, diaSemana, nombreDia);
+	rellenaTabla(nodoDia, nodoNombre, diasEnMes, diaSemana, nombreDia, miFecha);
+	buscaDia(nodoDia, miFecha);
 				
 	}
 function rellenaMesYAnno(miFecha){
 	document.getElementById('mesYAnno').innerHTML = getMes(miFecha.getMonth()) + ' ' +  miFecha.getFullYear();
 	}
+
+
 function rellenaTabla(nodoDia, nodoNombre, diasEnMes, diaSemana, nombreDia){
 	var dia = 0;
 	for(var i = 0; i < nodoNombre.length; i++){
@@ -52,13 +55,22 @@ function rellenaTabla(nodoDia, nodoNombre, diasEnMes, diaSemana, nombreDia){
 				dia = i - diaSemana+1;
 				nodoDia[i].innerHTML = dia;
 				if(dia == getDiaActual()){ 
-					nodoDia[i].style.backgroundColor="#FA5858"; 
-				}
-				
+					nodoDia[i].style.borderTop = "4px solid #B8F000"; 
+				}			
 			}
 		}
 	}
 }
+
+function buscaDia(nodoDia, miFecha){
+	for(var i = 0; i < nodoDia.length; i++){
+		var dia = nodoDia[i].innerHTML;
+		if (dia != ""){
+			confirmaDia(nodoDia[i],dia, getMes(miFecha.getMonth()), miFecha.getFullYear());
+		}
+	}
+}
+
 function getDiaDeInicio(fecha){
 	var diaSemana = fecha.getDay();
 	for(var i = fecha.getDate(); i>0; i--){
