@@ -1,0 +1,370 @@
+body {	
+		background-color:#F2E9E1;
+		font-size: 24px;
+}
+* {		margin: 0;}
+
+/*Estilos de los div y tablas del calendario*/
+#caja {	
+		width:90%;   
+		margin: auto;
+		align-content: center;
+		text-align: center;
+	}
+#tablaC {
+		text-align: center;
+		border-radius: 5px; 
+		background: white; 
+		width:400px; 
+		height:400px; 
+		font-family: arial; 
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+
+#tablaC .dia{
+		background: #eee;
+		border-radius: 1px;
+}
+
+#tablaC .dia:hover { 
+		background: #ABB7B7; 
+		color: white; 
+	}
+#tablaP	{
+		background: white; 
+		border-radius: 5px; 
+		border: solid 2px #CBE86B; 
+		align-content: center;
+		float: left;
+		margin-left: 40px;
+	}
+#nDias	{
+		background: #101010; 
+		color:white;
+	}
+td  {
+		width: 30px; 
+		height: 30px;
+	}
+
+/* estilos de el form de nuevo evento*/
+#infEvent {
+		color: black;
+		font-family: Arial;
+		font-size: 15px; 
+		width: 400px;
+}
+
+#infEvent button{
+		background: #2E7D32;
+		width: 25px; 
+		height: 25px; 
+		border-radius: 3px; 
+		color: white;
+	}
+#infEvent button:hover{
+		background: #81C784; 
+		color: black;
+	}
+
+#infEvent legend	{
+		color:white; 
+		background: #455A64; 
+		border-radius: 10px; 
+		border: 2px solid #593131;
+	}
+
+#form01	{
+		position: fixed; 
+		top: 50%; left: 50%;
+		margin-top: -275px; 
+		margin-left: -275px; 
+		padding: 5px 20px; 
+		color: black;
+		font-family: Arial; 
+		width: 550px;
+		height: 80%;
+		overflow: scroll;
+	}
+#form01 button #x{
+		width: 25px; 
+		height: 25px; 
+	}
+#form01 button {
+		background: #2E7D32;
+		border-radius: 5px; 
+		color: white;
+	}
+
+#form01 button:hover{
+		background: #81C784; 
+		color: black;
+	}
+
+#form01 legend	{
+		color:white; 
+		background: #455A64; 
+		border-radius: 10px; 
+		border:2px solid #593131;
+	}
+#form01 td {
+		height: 40px;
+	}
+
+#divBtn{
+		float: left;
+}
+
+.edit {
+	width: 100px;
+}
+
+.btnS { 
+		background: #e74c3c; 
+		width: 150px; 
+		height: 45px; 
+		border-radius: 5px; 
+		color: white;
+		margin: 5px;
+		margin-left: 10px;
+	}
+.btnS:hover{
+		background: #eee; 
+		color: black;
+	}
+
+#info {
+	background: white;
+	border-radius: 4px;
+	border:1px solid #eee;
+	width: 400px;
+	height: 400%;
+	margin-left: 40px;
+}
+
+
+/*estilo de ventana de nuevo evento */
+#ventana01{
+	width: 100%;
+	height: 100%;
+	background: rgba(242,233,225,.95);
+	color: white;
+	position: fixed;
+	display: none;
+}
+
+#ventana02{
+	width: 100%;
+	height: 100%;
+	background: rgba(242,233,225,.95);
+	font-size: 15px;
+	color: white;
+	position: fixed;
+	display: none;
+}
+
+#btnX{
+	color:red;
+	text-align: right;
+	font-weight: 900;
+	border: 1px solid black;
+	border-radius: 8px;
+	text-decoration: none;
+}
+
+#btnX:hover{
+	background: white;
+	color: black;
+}
+
+.Tipo{ /* estilo de texto despues de los input radio*/
+	font-size: 15px;
+	color:black;
+	margin: 0;
+	left:5px;
+	position: relative;
+}
+
+#btnGuardar{
+	background: #2E7D32; 
+	width: 120px; 
+	height: 25px; 
+	border-radius: 5px; 
+	color: white;
+}
+
+/*===================================*/
+
+h1{
+	position:relative;
+	top:1cm;
+	font-family:OpenSans;
+}
+
+h5{
+	color:black;
+	font-family: Roboto;
+}
+legend{
+	padding-top:5px;
+	font-family:OpenSans;
+	color:white;
+	text-align:center;
+}
+input{
+	width:200px;
+	height:20px;
+	font-family:OpenSans;
+	border:2px solid #eee;
+	border-radius:2px;
+}
+fieldset {
+  	padding: 0 20px 20px;
+  	margin: 0 0 30px;
+  	border: 1px solid black;
+  	background: white;
+  	border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+p{
+	font-color:white;
+	font-family:OpenSans;
+}
+
+
+.spN{
+	position:absolute;
+	padding-top:8px;
+	font-family:OpenSans;
+	color:white;
+	margin:0;
+	font-size:14px;
+	left:15px;
+}
+
+.midOpc{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.divPos{
+	text-align:center;
+	position:relative;
+	width:150px;
+	height:70px;
+	line-height:70px;
+	color:black;
+    font-family:OpenSans;
+    font-size:18px;
+    float:right;
+    background-color:white;
+    font-weight: bold;
+}
+
+/*/////////////////////////// PAGINA PRINCIPAL ////////////////////////////*/
+/*///////////////// Y ELEMENTOS DE LA CABECERA GENERAL ///////////////////*/
+
+#temporal{
+	display:block;
+	margin-top:2cm;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.opt a{
+	text-decoration: none;
+	font-family:OpenSans;
+	color:white;
+	font-size:15px;
+	background-color:#2574A9;
+	transition: 0.3s;
+}
+
+
+#opc{
+	position:absolute;
+	top:1.85cm;
+	right:0;
+	background-color:#2574A9;
+	width:200px;
+	height:0px;
+	overflow:hidden;
+	transition: 0.5s;
+}
+
+#config{
+	position:relative;
+	background-color:white;
+	width:70px;
+	height:70px;
+	color:white;
+    font-family:OpenSans;
+    font-size:15px;
+    float:right;
+    background-color:white;
+}
+
+
+#headPhrase{  /*/frase sevenClip/*/
+	position:relative;
+	float:left;
+	top:7px;
+}
+
+#headLogo{
+	position:relative;
+	float:left;
+	top:6px;
+	width:60px;
+	height:60px;
+}
+
+#headx{
+	height:70px;
+	background-color:white;
+	border-bottom:4px solid #CBE86B;
+}
+
+#calen {
+	border-bottom: 1px solid black;
+}
+
+.opt ul li a:hover{
+	font-weight:bold;
+}
+
+#h1{
+	position:relative;
+	text-align:center;
+}
+
+
+#fotoconf{
+	position:relative;
+	left:13px;
+	top:12px;
+	width:40px;
+	height:40px;
+}
+
+#up{
+	position:absolute;
+	width:30px;
+	height:30px;
+	left:80px;
+	top:118px;
+}
+
+
+@font-face {
+   font-family: OpenSans; 
+   src: url('OpenSans-Regular.ttf');
+} 
+@font-face {
+   font-family: Roboto; 
+   src: url('fuentes/Roboto-Thin.ttf');
+   
+} 
